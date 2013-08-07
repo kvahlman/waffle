@@ -34,7 +34,6 @@ want to write or compile a program that needs waffle.
 
 %prep
 %setup -q
-cd waffle
 %patch0 -p1
 
 %build
