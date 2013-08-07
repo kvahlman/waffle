@@ -10,7 +10,6 @@ URL:            http://people.freedesktop.org/~chadversary/waffle
 
 BuildRequires:  cmake
 BuildRequires:  wayland-devel
-BuildRequires:  mesa-llvmpipe-libGL-devel
 BuildRequires:  mesa-llvmpipe-libGLESv1-devel
 BuildRequires:  mesa-llvmpipe-libGLESv2-devel
 BuildRequires:  mesa-llvmpipe-libEGL-devel
