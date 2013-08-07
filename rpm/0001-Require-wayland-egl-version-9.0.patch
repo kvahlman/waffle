@@ -1,0 +1,25 @@
+From ed55fac9db212c264b7d7e4f2fa6e7b61d0a53fd Mon Sep 17 00:00:00 2001
+From: Matti Kosola <matti.kosola@jollamobile.com>
+Date: Wed, 7 Aug 2013 13:52:08 +0300
+Subject: [PATCH] Require wayland-egl version 9.0
+
+---
+ CMakeLists.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 45c3385..a613b78 100644
+--- a/waffle/CMakeLists.txt
++++ b/waffle/CMakeLists.txt
+@@ -194,7 +194,7 @@ endif()
+ 
+ if(waffle_has_wayland)
+     pkg_check_modules(wayland-client REQUIRED wayland-client>=1)
+-    pkg_check_modules(wayland-egl REQUIRED wayland-egl>=9.1)
++    pkg_check_modules(wayland-egl REQUIRED wayland-egl>=9.0)
+ endif()
+ 
+ if(waffle_has_x11)
+-- 
+1.8.1.2
+
