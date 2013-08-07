@@ -1,0 +1,3 @@
+[submodule "waffle"]
+	path = waffle
+	url = git://people.freedesktop.org/~chadversary/waffle
