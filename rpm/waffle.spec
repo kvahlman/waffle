@@ -10,10 +10,11 @@ URL:            http://people.freedesktop.org/~chadversary/waffle
 
 BuildRequires:  cmake
 BuildRequires:  wayland-devel
-BuildRequires:  mesa-llvmpipe-libGLESv1-devel
-BuildRequires:  mesa-llvmpipe-libGLESv2-devel
-BuildRequires:  mesa-llvmpipe-libEGL-devel
-BuildRequires:  mesa-llvmpipe-libwayland-egl-devel
+BuildRequires:  pkgconfig(x11)
+BuildRequires:  pkgconfig(gl)
+BuildRequires:  pkgconfig(xcb)
+BuildRequires:  pkgconfig(egl)
+BuildRequires:  pkgconfig(wayland-egl) 
 
 %description
 Waffle is a cross-platform C library that allows one to defer selection of GL 
