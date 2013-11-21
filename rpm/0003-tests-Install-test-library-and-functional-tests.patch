@@ -1,0 +1,38 @@
+From 3f93ad54ac1a1faea0f1c6a9443db31c543f7949 Mon Sep 17 00:00:00 2001
+From: Kalle Vahlman <kalle.vahlman@movial.com>
+Date: Thu, 21 Nov 2013 10:11:13 +0000
+Subject: [PATCH 3/4] tests: Install test library and functional tests
+
+We want to install the test library and functional tests for packaging.
+
+Signed-off-by: Kalle Vahlman <kalle.vahlman@movial.com>
+---
+ tests/functional/CMakeLists.txt  |    3 +++
+ tests/waffle_test/CMakeLists.txt |    3 +++
+ 2 files changed, 6 insertions(+)
+
+diff --git a/tests/functional/CMakeLists.txt b/tests/functional/CMakeLists.txt
+index 899bef6..9331a7b 100644
+--- a/tests/functional/CMakeLists.txt
++++ b/tests/functional/CMakeLists.txt
+@@ -31,3 +31,6 @@ set_source_files_properties(
+ add_executable(gl_basic_test
+     ${gl_basic_test_sources}
+     )
++
++install(TARGETS gl_basic_test
++        RUNTIME DESTINATION ${CMAKE_INSTALL_FULL_BINDIR})
+diff --git a/tests/waffle_test/CMakeLists.txt b/tests/waffle_test/CMakeLists.txt
+index e6f59f9..98efde3 100644
+--- a/tests/waffle_test/CMakeLists.txt
++++ b/tests/waffle_test/CMakeLists.txt
+@@ -3,3 +3,6 @@ add_library(waffle_test SHARED
+     priv/wt_runner.c
+     priv/wt_test.c
+     )
++
++install(TARGETS waffle_test
++        LIBRARY DESTINATION ${CMAKE_INSTALL_FULL_LIBDIR})
+-- 
+1.7.10.3
+

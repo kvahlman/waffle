@@ -1,0 +1,35 @@
+From d83901d923852bb2bc9367b5ecf7fb778b3deeae Mon Sep 17 00:00:00 2001
+From: Kalle Vahlman <kalle.vahlman@movial.com>
+Date: Thu, 21 Nov 2013 10:37:24 +0000
+Subject: [PATCH 2/4] egl: Allow building against older EGL headers
+
+EGL_OPENGL_ES3_BIT_KHR isn't defined in older EGL headers so let's
+define it for them. Usage is anyway going to return error since it's
+not supported, so we don't need to guard it better.
+
+Signed-off-by: Kalle Vahlman <kalle.vahlman@movial.com>
+---
+ src/waffle/egl/wegl_config.c |    7 +++++++
+ 1 file changed, 7 insertions(+)
+
+diff --git a/src/waffle/egl/wegl_config.c b/src/waffle/egl/wegl_config.c
+index 2c1bc1c..3c75a7b 100644
+--- a/src/waffle/egl/wegl_config.c
++++ b/src/waffle/egl/wegl_config.c
+@@ -35,6 +35,13 @@
+ #include "wegl_imports.h"
+ #include "wegl_util.h"
+ 
++/* Allow building against headers that don't know what OpenGL ES3 is
++ * At runtime it should anyway return "unsupported" if used.
++ */
++#ifndef EGL_OPENGL_ES3_BIT_KHR
++# define EGL_OPENGL_ES3_BIT_KHR 0x0214
++#endif
++
+ /// @brief Check the WAFFLE_CONTEXT_* attributes.
+ static bool
+ check_context_attrs(struct wegl_display *dpy,
+-- 
+1.7.10.3
+

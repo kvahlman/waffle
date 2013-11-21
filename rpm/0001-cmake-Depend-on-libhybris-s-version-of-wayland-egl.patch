@@ -1,0 +1,30 @@
+From b2e69c43d75a9b01a3230a9057bf2757af7ed8d4 Mon Sep 17 00:00:00 2001
+From: Kalle Vahlman <kalle.vahlman@movial.com>
+Date: Thu, 21 Nov 2013 10:29:28 +0000
+Subject: [PATCH 1/4] cmake: Depend on libhybris's version of wayland-egl
+
+Unfortunately libhybris and mesa both generate a completely
+different versioning scheme for wayland-egl.pc although used
+for the same purpose. There seems to be no easy fix for that.
+
+Signed-off-by: Kalle Vahlman <kalle.vahlman@movial.com>
+---
+ cmake/Modules/WaffleFindDependencies.cmake |    2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/cmake/Modules/WaffleFindDependencies.cmake b/cmake/Modules/WaffleFindDependencies.cmake
+index 8fb9d2a..b56df1f 100644
+--- a/cmake/Modules/WaffleFindDependencies.cmake
++++ b/cmake/Modules/WaffleFindDependencies.cmake
+@@ -41,7 +41,7 @@ endif()
+ 
+ if(waffle_has_wayland)
+     pkg_check_modules(wayland-client REQUIRED wayland-client>=1)
+-    pkg_check_modules(wayland-egl REQUIRED wayland-egl>=9.1)
++    pkg_check_modules(wayland-egl REQUIRED wayland-egl>=0.1.0)
+ endif()
+ 
+ if(waffle_has_x11)
+-- 
+1.7.10.3
+
