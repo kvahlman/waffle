@@ -45,10 +45,10 @@ This package contains some test programs for waffle.
 
 %prep
 %setup -q
-%patch0 -p1
-%patch1 -p1
-%patch2 -p1
-%patch3 -p1
+%patch0 -p1 -d waffle
+%patch1 -p1 -d waffle
+%patch2 -p1 -d waffle
+%patch3 -p1 -d waffle
 
 %build
 cd waffle
